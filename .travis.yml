@@ -4,7 +4,7 @@ jdk:
  - openjdk15
 env:
  global:
-  - secure: "sMmtgFFxccY2FZ5F/ujvZ/RuqzjyFXU1vuaRxgD+pgPjJPOsTEzqRBEsCsZrFVAZAZVFBBQiLIrKugaZTpL9sFVuuxPuv3nQ5lPcDvIlNHBym4Hyk/82lGn7o315tKUUS4CvSKVwCO7Ep0x3EILLDRDxMi1Xn481eoDFs/vGYTfCRRvgh052kiIuttoDzxz7jvSfuNwOdy9G7kziuufTt07EwCqbOJozGaveEmX3fGxKMXoYu4j8SHgAydjdgvcB5YPdSWxtDgLkwvB8qj/wLvq/zHNDXyii4Ll57AopLqaT8AIpe6NbDYwGLNiMoiGKM2I3668nE5QIP6Qz6L3kEPvUAZiVCD/o4My2K68L0FTvZwuqBe9O0I/29bVc1zVdGrjddLSvHZkJfZiOpiMWmLUfCd1e2AQJmlcxJqPj/SNQsNIbsHp1Y9QR8FBxJOnfKDtETeHQ1N2u2eetl7Ibem9QLqu+JjlbRkl5M/F5+LMl+PWOEWsYqZZ07cvP3msOXTBsqGBk8Oc3ssDTPRknoIzwI3n4fCJkkXSMtuj7c/e8X0A3yeaLA+hBgzvGYWd2NES7p2XRS02cM5L/JEzHDB9vKZT0MRtPb4SDu5sX4FNR64iy2loQVNHSr5HqpWSVxR2G7VHFTBdwT1SZRhs5n33Wv+mERLN/cBuKXsFWFi0="
+  - secure: "0hceZKeIRJKdozePCHYYk15yDrHsBbiOvLt4aWPgxe7mR5gvNMFETA2DCdGlZumQo81fqF1qOpZOC6+sKRxFiz2yiNGsxmh+vtR3j/kRIxg5wvT1yBNFlYNGAZf4g2XurtctEpIXAMhI/T79tbtwA8y8vAPHzae+j18oecMm335D4YaEF39fnIZilNTHHscCtP4KoLra++Em/CaZMq8WNnoc3D1jBPUYRleWr3wAT0StPsfJj/Nnd/dNfs9wpQacwY0yb1qXnkbK1twTeVBlGmbWTulybMigodtcWt+h3jPCLhFPIjTZcdjBkZc5OIPPef0uyGmJjF9jA7EobnkjRNsmgiYEZaAMdL0lCUz/9pUUUk72/ubHrf+Jp5PmchcXE0ZYU0VK6dLOmcdkcBTcxS/2M6LQVSsH3XFC6uMyn5wRVMAi3hL8Hb85E2SaItYYXxD77aACvKhnJ6V1S2NRGWZebZnW4tfLK4aXLjSbTxCR5JVj4rXMx1FACmazR8nR3cl+HHA91AGGlxAZ7cl7t1xsf9i02+ZmOjsU4CUFdsD7HlBPodaemENAhuwpkPgkKEsuY5763hzvqhpRrNlUu/NoWzFSOE+TXU8UqoP3fogB6QKaC2Yw26PNTsI2g+sVmt8ZWjJIXEY3FZrunFYDUMRcEukPac7QAh3xDw7Sejk="
 cache:
  directories:
   - $HOME/.m2
@@ -15,11 +15,11 @@ script:
 after_success:
  - >
    test $TRAVIS_PULL_REQUEST = false &&
-   git clone https://github.com/adisandro/adisandro.github.io.git &&
-   cd adisandro.github.io &&
+   git clone https://github.com/amgrubb/amgrubb.github.io.git &&
+   cd amgrubb.github.io &&
    rm -rf mmint/${TRAVIS_BRANCH/master/release} &&
    mv $TRAVIS_BUILD_DIR/releng/edu.toronto.cs.se.mmint.install/target/repository mmint/${TRAVIS_BRANCH/master/release} &&
    git add . &&
    git reset --soft HEAD~1 &&
-   git commit --author="Alessio Di Sandro <alessio.disandro@gmail.com>" -m "mmint: Update builds" &&
-   git push -f -q https://adisandro:$GITHUB_API_KEY@github.com/adisandro/adisandro.github.io.git master &> /dev/null
+   git commit --author="Alicia M. Grubb <amgrubb@smith.edu>" -m "mmint: Update builds" &&
+   git push -f -q https://amgrubb:$TMVAR@github.com/amgrubb/amgrubb.github.io.git master &> /dev/null
